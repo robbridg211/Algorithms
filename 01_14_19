@@ -1,0 +1,366 @@
+///////////////////////////////////JANUARY 14 ALGOS ////////////////////////////
+
+function swapVals(arr) {
+  for(var i = 0; i < arr.length/2; i+=2) {
+    var temp = arr[i]
+    arr[i] = arr[arr.length - 1 - i]
+    arr[arr.length - 1 - i] = temp
+  }
+  return arr;
+}
+swapVals([true, 42, 'ada', 2, 'pizza'])
+
+
+function scaleArr(arr, num) {
+  for(var i = 0; i < arr.length; i++) {
+    arr[i] *= num;
+  }
+  return arr;
+}
+
+scaleArr([1,2,3,4,5], 2)
+
+function lastFew(arr, num) {
+  for(var i = arr.length-1; i >= num; i--) {
+    arr.shift()
+  }
+  return arr;
+}
+
+lastFew([2,4,6,8,10], 3)
+
+function x_intercept(M, B) {
+  return M[0] - M[1]*(B[0]-M[0])/(B[1]-M[1]);
+}
+x_intercept([5, 3], [3, 4]);
+
+
+function mathIQ(num) {
+  var i = .01;
+  while(i <= .98) {
+    num += i
+    i +=.01;
+    console.log(i, num)
+  }
+  return Math.round(num)
+}
+
+mathIQ(101);
+
+function letterGrade(num) {
+  if(num > 100){
+    return "Not a valid input!"
+  }
+  if(num <= 100 && num >=90) {
+    if(num == 91 || num ==90){
+      console.log("Score: " + num + ", Grade: A-")      
+    } 
+    else {
+      console.log("Score: " + num + ", Grade: A")
+    }
+  }
+  if(num <= 89 && num >=80) {
+    if(num == 89 || num == 88) {
+      console.log("Score: " + num + ", Grade: B+")
+    }
+    else if(num == 81 || num == 80) {
+      console.log("Score: " + num + ", Grade: B-")
+    }
+    else {
+    console.log("Score: " + num + ", Grade: B")
+    }
+  }
+  if(num <= 79 && num >=70) {
+   if(num == 79 || num == 78) {
+      console.log("Score: " + num + ", Grade: C+")
+    }
+    else if(num == 71 || num == 70) {
+      console.log("Score: " + num + ", Grade: C-")
+    }
+    else {
+    console.log("Score: " + num + ", Grade: C")
+    }
+  }
+  if(num <= 69 && num >=60) {
+   if(num == 69 || num == 68) {
+      console.log("Score: " + num + ", Grade: D+")
+    }
+    else if(num == 61 || num == 60) {
+      console.log("Score: " + num + ", Grade: D-")
+    }
+    else {
+    console.log("Score: " + num + ", Grade: D")
+    }
+  }
+  if(num <= 59) {
+    console.log("Score: " + num + ", Grade: F")
+  }
+
+}
+
+
+letterGrade(67)
+
+
+function quiz() {
+  var questions = ['Best baseball team is who?','Best football team is who?','Best hockey team is who?','Best basketball team is who?']
+  var answers = ['cubs','bears','hawks','bulls']
+
+  var name = prompt("what's your name?")
+  console.log("Okay", name, "we're gonna ask you a series of questions... Press Q to quit at any prompt screen")
+
+var index = Math.floor(Math.random() * questions.length);
+  var answer = prompt(questions[index])
+  if(answer === 'Q') {
+    return 'thanks for playing!'
+  }
+  if(answer === answers[index]) {
+    console.log('Correct!')
+  }
+  else {
+    console.log('Wrong answer dummy!')
+  }
+}
+
+quiz()
+
+
+//////BASIC 13 ALGORITHMS//////
+
+for(var i = 1; i <= 255; i++) {
+  console.log(i)
+}
+
+function printIntsAndSum0To255() {
+  var sum = 0;
+  for(var i = 0; i < 256; i++) {
+    console.log(i)
+    sum += i;
+    console.log("SUM: ", sum)
+  }
+}
+printIntsAndSum0To255();
+
+function printMaxOfArray(arr) {
+  var max = arr[0];
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] > max) {
+      max = arr[i]
+    }
+  }
+  return max
+}
+printMaxOfArray([1,2,50,100,43])
+
+
+function returnOddsArrayTo255() {
+  var arr = [];
+  for(var i = 1; i < 256; i++) {
+    if(i % 2 != 0) {
+      arr.push(i)
+    }
+  }
+  return arr;
+}
+returnOddsArrayTo255();
+
+function returnArrayCountGreaterThanY(arr, y) {
+  var count = 0;
+  for(var i = 0; i < arr.length; i++) {
+    if (arr[i] > y) {
+      count++;
+    }
+  }
+  return count;
+}
+returnArrayCountGreaterThanY([1,2,3,4,5,6,7], 8)
+
+
+function printMaxMinAverageArrayVals(arr) {
+  var max = arr[0];
+  var min = arr[0];
+  var sum = 0;
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] > max) {
+      max = arr[i]
+    }
+    if(arr[i] < min) {
+      min = arr[i]
+    }
+  sum += arr[i]
+  var avg = sum / arr.length
+  }
+  console.log(" min:"+min+ " max:"+max+" avg:"+avg)
+}
+
+printMaxMinAverageArrayVals([1,2,3,4,5,6,7,8,9])
+
+function swapStringForArrayNegativeVals(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      arr[i] = 'Dojo'
+    }
+  }
+  return arr
+}
+swapStringForArrayNegativeVals([3,-5,8,-12,10])
+
+
+function Odds1To255() {
+  for(var i = 1; i < 256; i++) {
+    if (i % 2 != 0) {
+      console.log(i)
+    }
+  }
+  return
+}
+Odds1To255()
+
+
+function printArrayVals(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    console.log(arr[i])
+  }
+  return
+}
+
+printArrayVals([1,2,3,4,5,6])
+
+
+function printAverageOfArray(arr) {
+  var sum = 0;
+  for(var i = 0; i < arr.length; i++){
+  sum += arr[i]
+  var avg = sum / arr.length
+  }
+  return avg
+}
+printAverageOfArray([1,4,23,6,3,23,8])
+
+
+function squareArrayVals(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    arr[i] = (arr[i] * arr[i])
+  }
+  return arr
+}
+squareArrayVals([2,4,6,8,10])
+
+
+function zeroOutArrayNegativeVals(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+      arr[i] = 0
+    }
+  }
+  return arr
+}
+zeroOutArrayNegativeVals([3,-5,8,-12,10])
+
+function shiftArrayValsLeft(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i+1]
+  }
+  arr[arr.length-1] = 0;
+  return arr
+}
+
+shiftArrayValsLeft([1,2,3,4,5])
+
+
+function sigma(num) {
+  var n = 0;
+  var sum  = 0;
+  while(n <= num) {
+    sum += n;
+    n++;
+  }
+  return sum;
+}
+sigma(5)
+
+
+function factorial(num) {
+  var n = 1;
+  var total  = 1;
+  while(n <= num) {
+    total *= n;
+    n++;
+  }
+  return total;
+}
+factorial(5)
+
+
+function threesFives() {
+  var sum = 0;
+  for(var i = 100; i <= 4000000; i++) {
+    if(i % 3 == 0 && i % 5 == 0) {
+      sum -= i
+    }
+    if(i % 3 == 0 || i % 5 == 0) {
+      sum += i
+    }
+  }
+  return sum
+}
+threesFives();
+
+
+function generateCoinChange(num) {
+  var moneyDict = {}
+  if (num > 100) {
+    var getDollars = Math.floor(num / 100)
+    moneyDict.dollars = getDollars
+    num = num - (getDollars * 100)
+    console.log("Dollars: " + moneyDict.dollars)
+  }
+  if (num < 100 && num >= 25 && num != 0) {
+    var getQuarters = Math.floor(num / 25)
+    moneyDict.quarters = getQuarters
+    num = num - (getQuarters * 25)
+    console.log("Quarters: " + moneyDict.quarters)
+  }
+  if (num < 100 && num >= 10 && num != 0) {
+    var getDimes = Math.floor(num / 10)
+    moneyDict.dimes = getDimes
+    num = num - (getDimes * 10)
+    console.log("Dimes: " + moneyDict.dimes)
+  }
+  if (num <= 9 && num >= 5) {
+    var getNickels = Math.floor(num / 5)
+    moneyDict.nickels = getNickels
+    num = num - (getNickels * 5)
+    console.log("Nickels: " + moneyDict.nickels)
+  }
+  if (num <=9 && num > 5 || num < 5 && num > 0) {
+    moneyDict.pennies = num
+    console.log("Pennies: " + moneyDict.pennies)
+  }
+  return moneyDict
+}
+
+generateCoinChange(94)
+
+
+function messyMath(num) {
+  var count = 0;
+  var sum = 0;
+  while(count < num) {
+    if(count % 3 == 0) {
+      count++;
+    }
+    if(count % 7 == 0) {
+      sum += (count*2)
+      count++;
+    }
+    if(count == num * (1/3)) {
+      return -1
+    }
+    sum += count;
+    count++;
+  }
+  return sum;
+}
+
+messyMath(15)
