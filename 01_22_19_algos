@@ -1,0 +1,39 @@
+////////01/22/2019 ALGOS////////////////////////////////////////////
+
+function insertAt(arr, idx, n) {
+  var temp = arr[idx] 
+  arr[idx] = n
+  arr[arr.length] = arr[arr.length-1]      
+  for(i = idx+1; i < arr.length; i++) {
+    var temp2 = arr[i];
+    arr[i] = temp           
+    temp = temp2      
+  }
+  return arr;
+}
+
+insertAt([0,1,2,3,4,5,6,7], 4, 8) 
+
+
+function removeAt(arr, idx) {
+  var target = arr[idx]
+  for(var i = idx; i < arr.length; i++) {
+    var temp = arr[i]
+    arr[i] = arr[i + 1]
+    console.log(arr)
+  }
+  console.log(arr)
+  return target;
+}
+
+removeAt([0,1,2,3,4,5], 3) 
+
+
+function swapPairs(arr) {
+  for(var i = 0; i < arr.length-1; i+=2) {
+    [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+  }
+  return arr;
+}
+
+swapPairs([1,2,3,4,5,6,7])
